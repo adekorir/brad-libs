@@ -14,7 +14,7 @@ public class VirtualKeyboard extends HBox implements CharUpdatable {
     private CharUpdatable updatable;
 
     private final String BACKSPACE = "BACKSPACE", TAB = "TAB", CAPS_LOCK = "CAPS LOCK",
-            SHIFT = "SHIFT", ENTER = "ENTER", SPACE_BAR = "SPACE_BAR BAR";
+            SHIFT = "SHIFT", ENTER = "ENTER", SPACE_BAR = "SPACE BAR";
 
     public VirtualKeyboard() {
         super(10);
