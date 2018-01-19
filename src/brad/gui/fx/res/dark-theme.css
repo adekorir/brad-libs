@@ -1,0 +1,58 @@
+.root {
+  -fx-base: rgb(50, 50, 50);
+  -fx-background: rgb(50, 50, 50);
+  -fx-control-inner-background: rgb(50, 50, 50);
+}
+
+.tile-pane {
+  -fx-background: rgb(50, 50, 50);
+}
+
+.menu-bar {
+  -fx-background-color: derive(#1d1d1d, 20%);
+}
+
+.button {
+  -fx-background-color: transparent;
+  -fx-border-color: #e2e2e2;
+}
+
+.button:pressed, .button:default:hover:pressed {
+  -fx-background-color: white;
+  -fx-text-fill: #1d1d1d;
+}
+
+.button:hover {
+  -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
+  -fx-color: -fx-hover-base;
+}
+
+.table-view {
+  -fx-table-cell-border-color: derive(-fx-base, +10%);
+  -fx-table-header-border-color: derive(-fx-base, +20%);
+}
+
+.text-field {
+  -fx-background-color: orange;
+  -fx-text-fill: black;
+}
+
+.label, .hyperlink, #normal-label {
+  -fx-text-fill: orange;
+}
+
+#module-tile {
+  -fx-border-color: orange;
+}
+
+#oval-button {
+    -fx-border-radius: 50%
+}
+
+#error-label {
+  -fx-text-fill: blue
+}
+
+#exception-label {
+  -fx-text-fill: red
+}

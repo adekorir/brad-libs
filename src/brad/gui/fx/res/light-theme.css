@@ -1,0 +1,15 @@
+.label, #normal-label {
+  -fx-text-fill: black
+}
+
+#error-label {
+  -fx-text-fill: orange
+}
+
+#exception-label {
+  -fx-text-fill: red
+}
+
+#login-form {
+  -fx-background-color: #ffffff;
+}
