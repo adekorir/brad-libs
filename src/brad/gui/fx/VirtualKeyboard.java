@@ -13,6 +13,9 @@ public class VirtualKeyboard extends HBox implements CharUpdatable {
     private boolean shiftDown, capsOn;
     private CharUpdatable updatable;
 
+    private final String BACKSPACE = "BACKSPACE", TAB = "TAB", CAPS_LOCK = "CAPS LOCK",
+            SHIFT = "SHIFT", ENTER = "ENTER", SPACE_BAR = "SPACE_BAR BAR";
+
     public VirtualKeyboard() {
         super(10);
 
@@ -28,35 +31,35 @@ public class VirtualKeyboard extends HBox implements CharUpdatable {
     private void updateKeyboard() {
         root.getChildren().clear();
         final String[][] NORMAL_KEYBOARD = {
-                {"`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "BACKSPACE"},
-                {"TAB", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "\\"},
-                {"CAPS LOCK", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "ENTER"},
-                {"SHIFT", "z", "x", "c", "v", "b", "n", "m", ",", ".", "/", "SHIFT"},
-                {"SPACE BAR"}
+                {"`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", BACKSPACE},
+                {TAB, "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "\\"},
+                {CAPS_LOCK, "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", ENTER},
+                {SHIFT, "z", "x", "c", "v", "b", "n", "m", ",", ".", "/", SHIFT},
+                {SPACE_BAR}
         };
 
         final String[][] NORMAL_SHIFT_KEYBOARD = {
-                {"~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "BACKSPACE"},
-                {"TAB", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "{", "}", "|"},
-                {"CAPS LOCK", "A", "S", "D", "F", "G", "H", "J", "K", "L", ":", "\"", "ENTER"},
-                {"SHIFT", "Z", "X", "C", "V", "B", "N", "M", "<", ">", "?", "SHIFT"},
-                {"SPACE BAR"}
+                {"~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", BACKSPACE},
+                {TAB, "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "{", "}", "|"},
+                {CAPS_LOCK, "A", "S", "D", "F", "G", "H", "J", "K", "L", ":", "\"", ENTER},
+                {SHIFT, "Z", "X", "C", "V", "B", "N", "M", "<", ">", "?", SHIFT},
+                {SPACE_BAR}
         };
 
         final String[][] CAPS_KEYBOARD = {
-                {"`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "BACKSPACE"},
-                {"TAB", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "[", "]", "\\"},
-                {"CAPS LOCK", "A", "S", "D", "F", "G", "H", "J", "K", "L", ";", "'", "ENTER"},
-                {"SHIFT", "Z", "X", "C", "V", "B", "N", "M", ",", ".", "/", "SHIFT"},
-                {"SPACE BAR"}
+                {"`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", BACKSPACE},
+                {TAB, "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "[", "]", "\\"},
+                {CAPS_LOCK, "A", "S", "D", "F", "G", "H", "J", "K", "L", ";", "'", ENTER},
+                {SHIFT, "Z", "X", "C", "V", "B", "N", "M", ",", ".", "/", SHIFT},
+                {SPACE_BAR}
         };
 
         final String[][] CAPS_SHIFT_KEYBOARD = {
-                {"~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "BACKSPACE"},
-                {"TAB", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "{", "}", "|"},
-                {"CAPS LOCK", "a", "s", "d", "f", "g", "h", "j", "k", "l", ":", "\"", "ENTER"},
-                {"SHIFT", "z", "x", "c", "v", "b", "n", "m", "<", ">", "?", "SHIFT"},
-                {"SPACE BAR"}
+                {"~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", BACKSPACE},
+                {TAB, "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "{", "}", "|"},
+                {CAPS_LOCK, "a", "s", "d", "f", "g", "h", "j", "k", "l", ":", "\"", ENTER},
+                {SHIFT, "z", "x", "c", "v", "b", "n", "m", "<", ">", "?", SHIFT},
+                {SPACE_BAR}
         };
 
         String[][] keyboard;
@@ -82,12 +85,12 @@ public class VirtualKeyboard extends HBox implements CharUpdatable {
 
                 // set button dimensions
                 switch (btnText) {
-                    case "BACKSPACE":
-                    case "SHIFT":
-                    case "TAB":
-                    case "ENTER":
-                    case "CAPS LOCK":
-                    case "SPACE BAR":
+                    case BACKSPACE:
+                    case SHIFT:
+                    case TAB:
+                    case ENTER:
+                    case CAPS_LOCK:
+                    case SPACE_BAR:
                         button.setMinSize(50 * 2.5, 50);
                         button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
                         HBox.setHgrow(button, Priority.ALWAYS);
@@ -99,24 +102,24 @@ public class VirtualKeyboard extends HBox implements CharUpdatable {
                 // set button actions
                 button.setOnAction(event -> {
                     switch (btnText) {
-                        case "BACKSPACE":
+                        case BACKSPACE:
                             updatable.update('\r');
                             break;
-                        case "ENTER":
+                        case ENTER:
                             updatable.update('\n');
                             break;
-                        case "TAB":
+                        case TAB:
                             updatable.update('\t');
                             break;
-                        case "SHIFT":
+                        case SHIFT:
                             shiftDown = !shiftDown; // toggle shift
                             updateKeyboard();
                             break;
-                        case "CAPS LOCK":
+                        case CAPS_LOCK:
                             capsOn = !capsOn;   // toggle caps
                             updateKeyboard();
                             break;
-                        case "SPACE BAR":
+                        case SPACE_BAR:
                             updatable.update(' ');
                             break;
                         default: {
@@ -129,7 +132,7 @@ public class VirtualKeyboard extends HBox implements CharUpdatable {
                     }
                 });
 
-                if (btnText.equals("SPACE BAR")) {
+                if (btnText.equals(SPACE_BAR)) {
                     hBox.getChildren().addAll(new HSpacer(), button, new HSpacer());
                 } else {
                     hBox.getChildren().add(button);
